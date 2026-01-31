@@ -1,12 +1,35 @@
 # Ignore everything by default
 *
 
-# Track config files
+# Core config files
 !.gitignore
 !CLAUDE.md
 !settings.json
+!keybindings.json
+!terminal-config.json
+!statusline
 
-# Track plugins config (but not caches/marketplaces)
+# Rules (modular instructions)
+!rules/
+!rules/**
+
+# Skills (custom slash commands)
+!skills/
+!skills/**
+
+# Custom agents
+!agents/
+!agents/**
+
+# Output styles
+!output-styles/
+!output-styles/**
+
+# Hook scripts
+!hooks/
+!hooks/**
+
+# Plugins config (not caches/marketplaces)
 !plugins/
 plugins/*
 !plugins/installed_plugins.json
