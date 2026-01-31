@@ -86,5 +86,5 @@ Only deviate if the user explicitly says: "override global policy".
 </workflow>
 
 <subagents>
-When launching any built-in Claude Code subagent (Explore, Plan, general-purpose, etc.) via the Task tool, ALWAYS read ~/.claude/CLAUDE.md and prepend the <tooling> and <rules> sections to the prompt parameter. This ensures all subagents inherit the same policies even though CLAUDE.md is not automatically passed to them.
+When launching any built-in Claude Code subagent (Explore, Plan, general-purpose, etc.) via the Task tool, ALWAYS prepend a task to read and adhere to ~/.claude/CLAUDE.md to the prompt parameter. This ensures all subagents inherit the same policies even though CLAUDE.md is not automatically passed to them.
 </subagents>
