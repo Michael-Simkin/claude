@@ -1,0 +1,25 @@
+{
+  "version": 2,
+  "plugins": {
+    "typescript-lsp@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/michaelsi/.claude/plugins/cache/claude-plugins-official/typescript-lsp/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2026-01-28T09:22:18.590Z",
+        "lastUpdated": "2026-01-28T09:22:18.590Z",
+        "gitCommitSha": "e30768372b4150ca1bc0839d93283e8edc30d60d"
+      }
+    ],
+    "figma@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/michaelsi/.claude/plugins/cache/claude-plugins-official/figma/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2026-01-28T12:50:15.897Z",
+        "lastUpdated": "2026-01-28T12:50:15.897Z",
+        "gitCommitSha": "20aca44ee6ba6092037e943c151c067896828360"
+      }
+    ]
+  }
+}
