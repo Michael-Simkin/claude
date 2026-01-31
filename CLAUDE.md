@@ -81,6 +81,10 @@ Only deviate if the user explicitly says: "override global policy".
 - Context: use GrepAI/LSP first.
 - Plan (only if non-trivial): 2–6 steps; call out risk + rollback.
 - Implement: small, localized edits; keep interfaces stable unless requested.
-- Verify: use diagnostics/tests/typecheck/lint/build as appropriate; if you can’t run them, state exactly what to run + remaining risks.
+- Verify: use diagnostics/tests/typecheck/lint/build as appropriate; if you can't run them, state exactly what to run + remaining risks.
 - Handoff: provide a review-ready summary (below), then STOP.
 </workflow>
+
+<subagents>
+When launching any built-in Claude Code subagent (Explore, Plan, general-purpose, etc.) via the Task tool, ALWAYS read ~/.claude/CLAUDE.md and prepend the <tooling> and <rules> sections to the prompt parameter. This ensures all subagents inherit the same policies even though CLAUDE.md is not automatically passed to them.
+</subagents>
