@@ -29,6 +29,23 @@
 !hooks/
 !hooks/**
 
+# Commands
+!commands/
+!commands/**
+
+# Scripts
+!scripts/
+!scripts/**
+
+# Docs
+!docs/
+!docs/**
+
+# Local KB state (runtime-only)
+!kb/
+kb/*
+!kb/.gitignore
+
 # Plugins config (not caches/marketplaces)
 !plugins/
 plugins/*
