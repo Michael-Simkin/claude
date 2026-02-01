@@ -10,5 +10,29 @@
   "enabledPlugins": {
     "typescript-lsp@claude-plugins-official": true,
     "figma@claude-plugins-official": true
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"$HOME/.claude/hooks/session-start.sh\""
+          }
+        ]
+      }
+    ],
+    "SessionEnd": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"$HOME/.claude/hooks/session-end.sh\"",
+            "async": true,
+            "timeout": 3600
+          }
+        ]
+      }
+    ]
   }
 }
