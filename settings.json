@@ -10,5 +10,37 @@
   "enabledPlugins": {
     "typescript-lsp@claude-plugins-official": true,
     "figma@claude-plugins-official": true
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash -lc '~/.claude/scripts/session_start.sh'"
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash -lc '~/.claude/scripts/user_prompt_submit.sh'"
+          }
+        ]
+      }
+    ],
+    "SessionEnd": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash -lc '~/.claude/scripts/session_end.sh'"
+          }
+        ]
+      }
+    ]
   }
 }
