@@ -11,7 +11,7 @@ if [[ -z "$home_dir" ]]; then
 fi
 
 claude_dir="$home_dir/.claude"
-kb_pr_file="$home_dir/.claude-kb/kb/last_pr.txt"
+kb_repo="$home_dir/.claude-kb"
 
 messages=()
 
@@ -25,10 +25,10 @@ if [[ -d "$claude_dir/.git" ]]; then
   fi
 fi
 
-if [[ -f "$kb_pr_file" ]]; then
-  pr_msg="$(cat "$kb_pr_file")"
-  if [[ -n "$pr_msg" ]]; then
-    messages+=("KB review: $pr_msg")
+if command -v gh >/dev/null 2>&1 && [[ -d "$kb_repo/.git" ]]; then
+  pr_body="$(cd "$kb_repo" && gh pr list --head kb/auto --json body --jq '.[0].body' 2>/dev/null || true)"
+  if [[ -n "$pr_body" && "$pr_body" != "null" ]]; then
+    messages+=("$pr_body")
   fi
 fi
 
