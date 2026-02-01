@@ -17,6 +17,7 @@ Only deviate if the user explicitly says: "override global policy".
 - (R7) Keep output concise. Prefer minimal diffs/patches over long prose. Avoid scope creep unless the user asks for refactoring.
 - (R8) Consistency: Before introducing new patterns, find existing examples and follow established conventions.
 - (R9) Self-verify before handoff. Fix issues you find. Deliver only when it would pass strict senior review and relevant checks.
+- (R10) File-level documentation: When creating new files, add a brief header explaining the file's purpose. Use language-appropriate conventions: module docstrings for Python, JSDoc comments for TypeScript/JavaScript, header comments for shell scripts.
 </rules>
 
 <tooling>
