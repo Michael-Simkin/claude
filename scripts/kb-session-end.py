@@ -260,6 +260,7 @@ def main():
     claude_cmd = [
         "claude",
         "-p",
+        "--dangerously-skip-permissions",
         "--output-format",
         "json",
         "--max-turns",
