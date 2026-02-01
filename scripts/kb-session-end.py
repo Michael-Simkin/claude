@@ -58,9 +58,11 @@ def get_default_branch(repo, env):
 
 
 def ensure_kb_repo(source_repo, kb_repo, env):
-    if kb_repo.exists():
+    if (kb_repo / ".git").exists():
         return
     origin_url = get_origin_url(source_repo, env)
+    if kb_repo.exists():
+        shutil.rmtree(kb_repo)
     kb_repo.parent.mkdir(parents=True, exist_ok=True)
     run(["git", "clone", origin_url, str(kb_repo)], env=env)
 
@@ -278,7 +280,7 @@ def main():
 
     status = run(["git", "-C", str(kb_repo), "status", "--porcelain"], env=env)
     if status.stdout.strip() == "":
-        timestamp = dt.datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
+        timestamp = dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
         note = f"No changes from KB run at {timestamp}."
         if summary:
             note = f"{note} Summary: {summary}"
