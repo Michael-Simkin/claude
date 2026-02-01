@@ -42,9 +42,7 @@
 !docs/**
 
 # Local KB state (runtime-only)
-!kb/
-kb/*
-!kb/.gitignore
+kb/
 
 # Plugins config (not caches/marketplaces)
 !plugins/
