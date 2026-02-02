@@ -2,19 +2,17 @@
 
 ## Overview
 
-- **SessionStart hook** pulls `~/.claude` from `main` (fast-forward only) and shows the current KB PR description (if any).
-- **SessionEnd hook** runs asynchronously and launches a headless KB update job that clones/updates `~/.claude-kb`, applies changes, and pushes/updates the `kb/auto` PR.
+- **SessionStart hook** pulls `~/.claude` from `main` (fast-forward only) and prints the current diff from `~/.claude-kb` in a readable format.
+- **SessionEnd hook** runs asynchronously and launches a headless KB update job that updates files directly on `~/.claude-kb` `main` (no commits, no PRs).
 
 ## Runtime locations (ignored by git)
 
-- `~/.claude-kb/kb/transcripts/` - session transcripts copied by the headless job
 - `~/.claude-kb/kb/run.lock/` - lock directory used to prevent concurrent runs
 
 ## Debugging
 
 - Run `claude --debug` to see hook execution details.
-- If a run fails, check `gh` output and the PR body for the last summary.
-- If `gh` is not authenticated, run `gh auth status`.
+- If a run fails, check the hook output in the transcript.
 
 ## Manual test (local)
 

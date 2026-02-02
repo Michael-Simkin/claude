@@ -15,8 +15,8 @@ If `transcript_path` is missing or the file doesn't exist, stop with a short not
 - Read the session transcript.
 - Extract durable, repeatable learnings (avoid one-off or noisy directives).
 - Update the Claude Code setup to encode those learnings.
-- Commit, push, and create/update a PR on `kb/auto`.
-- Keep the PR **body** as the human-readable summary for the next session start.
+- Keep the working tree on `main`.
+- Never commit or push.
 
 ## Process
 
@@ -30,19 +30,22 @@ If `transcript_path` is missing or the file doesn't exist, stop with a short not
 - You may write runtime artifacts under `kb/**`, but do not commit them.
 - Do not modify: `settings.json`, `hooks/**`, `scripts/**`, `commands/**`, `plugins/**`, `agents/**`, `output-styles/**`.
 - Do not add comments unless they are necessary to explain non-obvious behavior.
+- Do not create or switch to branches other than `main`.
+- Do not run `git commit`, `git push`, or any PR-related commands (`gh pr ...`).
 
 ## Procedure
 
 1. **Assume repo exists** at `~/.claude-kb`.
    - If `~/.claude-kb/.git` does not exist, stop with a short note.
-2. **Prepare `kb/auto`**:
-   - `git -C ~/.claude-kb fetch origin --prune`.
-   - If `origin/kb/auto` exists, checkout `kb/auto` and pull.
-   - Else create `kb/auto` from `origin/main`.
-   - Ensure `origin/main` is an ancestor of `kb/auto`:
-     - Check: `git -C ~/.claude-kb merge-base --is-ancestor origin/main HEAD`
-     - If not, merge `origin/main` into `kb/auto` (fast-forward if possible).
-   - Ensure clean working tree before edits; if dirty, stop without changes.
+2. **Stay on `main` and stay current**:
+   - `git -C ~/.claude-kb checkout main`
+   - `git -C ~/.claude-kb fetch origin --prune`
+   - If the working tree is clean, `git -C ~/.claude-kb pull --ff-only origin main`.
+   - If the working tree is dirty, use a temporary stash to fast-forward:
+     - `git -C ~/.claude-kb stash push -u -m "kb-auto"`
+     - `git -C ~/.claude-kb pull --ff-only origin main`
+     - `git -C ~/.claude-kb stash pop`
+   - If any step fails or causes conflicts, stop without changes.
 3. **Acquire lock**:
    - Create `~/.claude-kb/kb` if needed.
    - Use an atomic lock (e.g., `mkdir ~/.claude-kb/kb/run.lock`).
@@ -56,21 +59,8 @@ If `transcript_path` is missing or the file doesn't exist, stop with a short not
 6. **If no changes**:
    - Do nothing and stop.
 7. **If changes exist**:
-   - `git -C ~/.claude-kb add -A`
-   - `git -C ~/.claude-kb commit -m "kb: auto updates from session <session_id>"`
-   - `git -C ~/.claude-kb push -u origin kb/auto`
-   - Create or update the PR (`gh pr create` or `gh pr edit`).
-8. **PR description** (required):
-   - Keep it concise and human-readable (this is what SessionStart prints).
-   - Format: short readable bullet points listing **additions** only.
-   - Example template:
-
-     ```markdown
-     - Added: <short addition 1>
-     - Added: <short addition 2>
-     - Added: <short addition 3>
-     ```
+   - Leave changes as uncommitted modifications on `main`.
 
 ## Output
 
-- End with a short plaintext summary and PR URL (if created/updated).
+- End with a short plaintext summary of additions made (or "No changes").

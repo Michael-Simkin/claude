@@ -7,6 +7,12 @@ fi
 
 hook_payload="$(cat)"
 
+if [[ ! -d "$HOME/.claude-kb/.git" ]]; then
+  exit 0
+fi
+
+cd "$HOME/.claude-kb"
+
 CLAUDE_KB_RUN=1 claude -p \
   --dangerously-skip-permissions \
   --output-format json \
