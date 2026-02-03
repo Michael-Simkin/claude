@@ -2,7 +2,7 @@
 
 ## Overview
 
-- **SessionStart hook** pulls `~/.claude` from `main` (fast-forward only) and prints the current diff from `~/.claude-kb` in a readable format.
+- **SessionStart hook** pulls `~/.claude` from `main` (fast-forward only) and prints a compact list of tracked file changes (staged/unstaged) for `~/.claude` and `~/.claude-kb`.
 - **SessionEnd hook** runs asynchronously and launches a headless KB update job that updates files directly on `~/.claude-kb` `main` (no commits, no PRs).
 
 ## Runtime locations (ignored by git)
