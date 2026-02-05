@@ -10,10 +10,6 @@
     "defaultMode": "dontAsk"
   },
   "model": "claude-opus-4-5@20251101",
-  "enabledPlugins": {
-    "typescript-lsp@claude-plugins-official": true,
-    "figma@claude-plugins-official": true
-  },
   "hooks": {
     "SessionStart": [
       {
@@ -31,11 +27,16 @@
           {
             "type": "command",
             "command": "bash \"$HOME/.claude/hooks/session-end.sh\"",
-            "async": true,
-            "timeout": 3600
+            "timeout": 3600,
+            "async": true
           }
         ]
       }
     ]
+  },
+  "enabledPlugins": {
+    "typescript-lsp@claude-plugins-official": true,
+    "figma@claude-plugins-official": true,
+    "playwright@claude-plugins-official": true
   }
 }

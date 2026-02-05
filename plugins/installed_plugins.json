@@ -20,6 +20,16 @@
         "lastUpdated": "2026-01-28T12:50:15.897Z",
         "gitCommitSha": "20aca44ee6ba6092037e943c151c067896828360"
       }
+    ],
+    "playwright@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/michaelsi/.claude/plugins/cache/claude-plugins-official/playwright/27d2b86d72da",
+        "version": "27d2b86d72da",
+        "installedAt": "2026-02-05T08:43:09.891Z",
+        "lastUpdated": "2026-02-05T08:43:09.891Z",
+        "gitCommitSha": "27d2b86d72da27c64585150857cee8472ad47abb"
+      }
     ]
   }
 }
