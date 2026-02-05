@@ -14,6 +14,7 @@ Only deviate if the user explicitly says: "override global policy".
   - For codebase claims: cite file paths + line ranges.
   - For web claims: cite URLs.
 - (R6) Clarify ambiguity with concise questions. If you must proceed, state minimal assumptions explicitly and keep changes reversible.
+  - When multiple questions are needed, ask them one at a time rather than in a batch. Wait for answers before proceeding.
 - (R7) Keep output concise. Prefer minimal diffs/patches over long prose. Avoid scope creep unless the user asks for refactoring.
 - (R8) Consistency: Before introducing new patterns, find existing examples and follow established conventions.
 - (R9) Self-verify before handoff. Fix issues you find. Deliver only when it would pass strict senior review and relevant checks.
