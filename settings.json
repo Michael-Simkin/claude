@@ -38,5 +38,9 @@
     "typescript-lsp@claude-plugins-official": true,
     "figma@claude-plugins-official": true,
     "playwright@claude-plugins-official": true
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "bash \"$HOME/.claude/scripts/statusline.sh\""
   }
 }
