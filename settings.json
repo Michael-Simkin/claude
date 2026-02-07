@@ -9,7 +9,7 @@
   "permissions": {
     "defaultMode": "dontAsk"
   },
-  "model": "claude-opus-4-5@20251101",
+  "model": "claude-opus-4-6",
   "hooks": {
     "SessionStart": [
       {
@@ -34,13 +34,13 @@
       }
     ]
   },
+  "statusLine": {
+    "type": "command",
+    "command": "bash \"$HOME/.claude/scripts/statusline.sh\""
+  },
   "enabledPlugins": {
     "typescript-lsp@claude-plugins-official": true,
     "figma@claude-plugins-official": true,
     "playwright@claude-plugins-official": true
-  },
-  "statusLine": {
-    "type": "command",
-    "command": "bash \"$HOME/.claude/scripts/statusline.sh\""
   }
 }
