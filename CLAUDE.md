@@ -23,8 +23,20 @@ Only deviate if the user explicitly says: "override global policy".
 <tooling>
 - Default to GrepAI for discovery and call graphs; use LSP for symbol-aware navigation and diagnostics.
 - Only fall back to basic file/regex/shell tools when GrepAI/LSP are unavailable or insufficient, and say why.
+
+GrepAI initialization (per-repo, one-time):
+
+1. In the repo root: `grepai init -p ollama -b gob`
+2. To start indexing restart claude code.
+The MCP server is configured globally in `~/.claude.json` under `mcpServers.grepai`.
 </tooling>
 
 <subagents>
 When launching any built-in Claude Code subagent via the Task tool, prepend: "Read and follow ~/.claude/CLAUDE.md, especially the <tooling> rules (GrepAI first, then LSP; other tools only if necessary and explain the fallback)." This is mandatory.
 </subagents>
+
+<explore-agent>
+The built-in Explore subagent is disabled. Always use the custom `explore` agent defined in `~/.claude/agents/explore.md`.
+This agent inherits the main model (not Haiku), enforces the tooling hierarchy (Grep → LSP → Glob → Read → Bash), and runs in read-only mode.
+For all codebase search, analysis, and understanding tasks, delegate to `explore`.
+</explore-agent>

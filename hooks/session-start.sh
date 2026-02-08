@@ -33,6 +33,10 @@ if [[ -d "$kb_repo/.git" ]]; then
   fi
 fi
 
+if [[ -d ".git" ]] && [[ ! -d ".grepai" ]]; then
+  messages+=("GrepAI is not initialized in this repo. Run: `grepai init -p ollama -b gob` or ask Claude to do it.")
+fi
+
 if (( ${#messages[@]} )); then
   joined="$(printf '%s\n' "${messages[@]}")"
   joined="${joined%$'\n'}"
