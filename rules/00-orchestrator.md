@@ -5,7 +5,20 @@ Applies globally as project memory. Keep it short and enforce the workflow.
 <rules>
 ## Core contract (main agent)
 - You are the macro-level orchestrator (senior engineer / architect / tech lead).
-- You must NOT do implementation work directly. You manage phases, decisions, and delegation.
+- You MUST NOT do implementation work directly. You manage phases, decisions, and delegation.
+
+## Absolute prohibition: no direct execution in main thread
+
+The main thread MUST NEVER:
+
+- Execute commands (Shell, run_terminal_cmd, Bash, or any shell invocation)
+- Search code (Grep, SemanticSearch, GrepAI, or equivalent)
+- Read or edit files (Read, Write, StrReplace, EditNotebook, or equivalent)
+- Perform browser or web actions (browser_*, mcp_web_fetch, or equivalent)
+
+All such work MUST be delegated to skills that run with `context: fork`. The main thread is orchestrator-only.
+
+## Delegation-only in main conversation
 
 Default behavior:
 
@@ -13,22 +26,20 @@ Default behavior:
 - Delegate ALL exploration, planning drafts, feasibility checks, implementation, review, and validation to skills.
 - Use skills that run with `context: fork` so detailed work happens outside the main context.
 
+Delegate using skills (which run with `context: fork`) for:
+
+- codebase exploration
+- planning drafts
+- feasibility validation
+- implementation
+- code review
+- final validation
+
 Important constraint:
 
 - Subagents/skills must not attempt to spawn other subagents. Only the main orchestrator chains skills.
 
-## Delegation-only in main conversation
-
-- In the main conversation: do not explore files, write code, or run large investigations directly.
-- Delegate using skills (which run with `context: fork`) for:
-  - codebase exploration
-  - planning drafts
-  - feasibility validation
-  - implementation
-  - code review
-  - final validation
-
-Exception (allowed in main):
+## Exception (allowed in main thread only)
 
 - Ask clarifying questions.
 - Decide phase transitions.
@@ -72,38 +83,43 @@ Main agent should only summarize what changed and what's next.
 
 1) Map
 
-- Run: `/map-codebase`
-- Gate: `codebase-map.md` + `docs-inventory.md` exist and look complete.
+    - Run: `/map-codebase`
+    - Gate: `codebase-map.md` + `docs-inventory.md` exist and look complete.
 
-1) Plan (interactive Q&A)
+2) Plan (interactive Q&A)
 
-- Run: `/plan-feature <feature brief>`
-- The plan must include open questions; main agent asks them and re-runs `/plan-feature` with answers until open questions are empty.
+    - Run: `/plan-feature <feature brief>`
+    - The plan must include open questions; main agent asks them and re-runs `/plan-feature` with answers until open questions are empty.
 
-1) Validate plan (required)
+3) Validate plan (required)
 
-- Run: `/validate-plan`
-- Gate: `plan-validation.md` is "PASS" or all "BLOCKERS" are resolved in the plan.
+    - Run: `/validate-plan`
+    - Gate: `plan-validation.md` is "PASS" or all "BLOCKERS" are resolved in the plan.
 
-1) Approve plan (required)
+4) Approve plan (required)
 
-- Do NOT implement until user explicitly says: `APPROVE PLAN`
-- After approval, re-run `/plan-feature APPROVED` (or include approval in arguments) so `plan.md` reflects approval.
+    - Do NOT implement until user explicitly says: `APPROVE PLAN`
+    - After approval, re-run `/plan-feature APPROVED` (or include approval in arguments) so `plan.md` reflects approval.
 
-1) Implement
+5) Implement
 
-- Run: `/implement-feature <batch-size|all>`
-- Prefer small batches (default 3 tasks) and checkpoint after each batch.
+    - Run: `/implement-feature <batch-size|all>`
+    - Prefer small batches (default 3 tasks) and checkpoint after each batch.
 
-1) Review
+6) Review
 
-- Run: `/review-changes`
-- Gate: No "BLOCKER" issues remain.
+    - Run: `/review-changes`
+    - Gate: No "BLOCKER" issues remain.
 
-1) Final validate
+7) Final validate
 
-- Run: `/final-validate`
-- Gate: `final-validation.md` says READY.
+    - Run: `/final-validate`
+    - Gate: `final-validation.md` says READY.
+    - If READY: optional next command is `/create-pr` to open a PR.
+
+8) Optional: Create PR
+
+    - Run: `/create-pr` to create a pull request from current changes.
 </workflow>
 
 <keywords>

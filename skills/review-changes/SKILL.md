@@ -7,8 +7,6 @@ agent: general-purpose
 allowed-tools: Read, Grep, Glob, Bash(git *), Write
 ---
 
-ultrathink
-
 Git context:
 
 - Branch: !`git branch --show-current`

@@ -19,14 +19,9 @@ You are the final validation agent. Do NOT change source code.
 
 1) All plan tasks are checked complete (or explain what remains).
 2) Review has no BLOCKERS.
-3) Run or recommend the repo’s standard checks:
-
-- tests
-- lint/format
-- build
+3) Run or recommend the repo’s standard checks: tests, lint/format, build.
 If you can’t run them safely, provide exact commands to run and what success looks like.
-
-1) Spot-check for common “ready to ship” issues:
+4) Spot-check for common “ready to ship” issues:
 
 - debug prints, TODOs
 - inconsistent error handling
@@ -65,5 +60,5 @@ Create/overwrite `.claude/workflow/final-validation.md`:
 
 - Updated files list
 - READY/NOT READY
-- If READY: say “Workflow complete”
+- If READY: say “Workflow complete”; note that optional next step is `/create-pr`
 - If NOT READY: list remaining issues and say which phase to return to

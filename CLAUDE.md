@@ -20,7 +20,25 @@ Only deviate if the user explicitly says: "override global policy".
 - (R9) Self-verify before handoff. Fix issues you find. Deliver only when it would pass strict senior review and relevant checks.
 </rules>
 
+<orchestrator>
+The main thread is strictly orchestrator-only. It MUST NOT:
+- Execute commands (run_terminal_cmd, Shell, or any Bash/shell invocation)
+- Search code (Grep, SemanticSearch, GrepAI, or equivalent)
+- Read or edit files (Read, Write, StrReplace, EditNotebook, or equivalent)
+- Perform browser or web actions (browser_*, mcp_web_fetch, or equivalent)
+
+The main thread MAY ONLY:
+
+- Delegate to subagents via the Task tool with `context: fork`
+- Ask clarifying questions, decide phase transitions, provide short summaries and next steps
+- Use orchestration utilities explicitly allowed in rules (e.g. invoking skills by name)
+
+All implementation, search, exploration, file I/O, command execution, and browser actions are performed by subagents/skills that run with context fork — never by the main thread.
+</orchestrator>
+
 <tooling>
+Applies to subagents and skills when they execute. The main thread does not use these tools.
+
 - Default to GrepAI for discovery and call graphs; use LSP for symbol-aware navigation and diagnostics.
 - Only fall back to basic file/regex/shell tools when GrepAI/LSP are unavailable or insufficient, and say why.
 
@@ -37,6 +55,6 @@ When launching any built-in Claude Code subagent via the Task tool, prepend: "Re
 
 <explore-agent>
 The built-in Explore subagent is disabled. Always use the custom `explore` agent defined in `~/.claude/agents/explore.md`.
-This agent inherits the main model (not Haiku), enforces the tooling hierarchy (Grep → LSP → Glob → Read → Bash), and runs in read-only mode.
-For all codebase search, analysis, and understanding tasks, delegate to `explore`.
+This agent inherits the main model (not Haiku), enforces the tooling hierarchy (GrepAI -> LSP -> Grep -> Glob -> Read -> Bash), and runs in read-only mode.
+The main thread MUST delegate all codebase search, analysis, and understanding tasks to `explore` — it must never perform these tasks directly.
 </explore-agent>
