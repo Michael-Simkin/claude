@@ -41,9 +41,6 @@
 !docs/
 !docs/**
 
-# Local KB state (runtime-only)
-kb/
-
 # Plugins config (not caches/marketplaces)
 !plugins/
 plugins/*

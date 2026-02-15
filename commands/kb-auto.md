@@ -1,6 +1,6 @@
 # KB Auto Update
 
-You are running a headless Claude Code job. Your job is to fully manage the KB update workflow.
+You are running a headless Claude Code job. Your job is to append session learnings to REFLECTIONS.md.
 
 Input:
 
@@ -8,59 +8,63 @@ Input:
   - `session_id`
   - `transcript_path`
 
-If `transcript_path` is missing or the file doesn't exist, stop with a short note and do not create/update a PR.
+If `transcript_path` is missing or the file doesn't exist, stop with a short note and do not update REFLECTIONS.md.
+
+## Context (read before extraction)
+
+**Required.** Read these files in full before extracting from the transcript. Use them to avoid duplicates and to ground learnings in existing policy:
+
+- CLAUDE.md
+- rules/*.md
+- skills/*/SKILL.md
+- commands/*.md
+- REFLECTIONS.md
 
 ## Goals
 
-- Read the session transcript.
-- Extract durable, repeatable learnings (avoid one-off or noisy directives).
-- Update the Claude Code setup to encode those learnings.
-- Keep the working tree on `main`.
-- Never commit or push.
+- Extract durable, actionable learnings grounded in existing policy (rules, skills, commands, REFLECTIONS).
+- Append only learnings that are actionable and repeatable — not vague or session-specific.
+- Append learnings to REFLECTIONS.md as unordered markdown list items (`- learning`), one per line, append-only.
 
-## Process
+## Constraints
 
-1. Read the transcript file and summarize the stable patterns or rules that would improve future sessions.
-2. Make minimal, focused edits that reflect those learnings.
-3. Keep changes consistent with existing style and structure.
+- Append only to REFLECTIONS.md. Do not modify CLAUDE.md, rules/**, skills/**, docs/**, settings.json, hooks/**, scripts/**, commands/**, plugins/**, agents/**, or output-styles/**.
+- Each learning as a markdown unordered list item (`- learning`). One item per line. Append-only. No multi-line entries.
+- Do not create or switch branches. Do not run `git commit`, `git push`, or any PR commands.
 
-## Allowed changes
+## Transcript format
 
-- You may modify only: `CLAUDE.md`, `rules/**`, `skills/**`, `docs/**`.
-- You may write runtime artifacts under `kb/**`, but do not commit them.
-- Do not modify: `settings.json`, `hooks/**`, `scripts/**`, `commands/**`, `plugins/**`, `agents/**`, `output-styles/**`.
-- Do not add comments unless they are necessary to explain non-obvious behavior.
-- Do not create or switch to branches other than `main`.
-- Do not run `git commit`, `git push`, or any PR-related commands (`gh pr ...`).
+- `transcript_path` points to a **JSONL** file (one JSON object per line).
+- Each line is a message or turn in the session.
+
+## Extraction criteria
+
+**Include** only if ALL of the following hold:
+
+- **Explicit** — user preference, correction, or constraint stated clearly; or **repeated friction** (same issue appears 2+ times in transcript).
+- **Actionable** — could reasonably become a rule, skill, or command (concrete, implementable).
+- **Repeatable** — applies to 2+ future sessions, not tied to a single project or context.
+- **Non-duplicate** — not already covered by CLAUDE.md, rules/*.md, skills/*/SKILL.md, commands/*.md, or REFLECTIONS.md.
+
+**Exclude**:
+
+- One-off session facts (file paths, project names, one-time decisions).
+- Vague or speculative guidance ("maybe consider X").
+- Already-obvious conventions or generic best practices.
+- Ephemeral chat, jokes, or context that won't generalize.
+- Items that duplicate existing policy or REFLECTIONS content.
+- Session-specific requests that won't recur.
+
+**Output format**: Each learning as a markdown unordered list item (`- learning`). One item per line. Short, concrete, reusable. No multi-line entries.
 
 ## Procedure
 
-1. **Assume repo exists** at `~/.claude-kb`.
-   - If `~/.claude-kb/.git` does not exist, stop with a short note.
-2. **Stay on `main` and stay current**:
-   - `git -C ~/.claude-kb checkout main`
-   - `git -C ~/.claude-kb fetch origin --prune`
-   - If the working tree is clean, `git -C ~/.claude-kb pull --ff-only origin main`.
-   - If the working tree is dirty, use a temporary stash to fast-forward:
-     - `git -C ~/.claude-kb stash push -u -m "kb-auto"`
-     - `git -C ~/.claude-kb pull --ff-only origin main`
-     - `git -C ~/.claude-kb stash pop`
-   - If any step fails or causes conflicts, stop without changes.
-3. **Acquire lock**:
-   - Create `~/.claude-kb/kb` if needed.
-   - Use an atomic lock (e.g., `mkdir ~/.claude-kb/kb/run.lock`).
-   - If the lock already exists, stop without changes.
-   - Remove the lock when finished.
-4. **Read transcript**:
-   - Read the transcript directly from `transcript_path`.
-5. **Analyze transcript** and decide on changes:
-   - Prefer durable policies. Avoid speculative or one-off instructions.
-   - Keep diffs small and consistent with existing conventions.
-6. **If no changes**:
-   - Do nothing and stop.
-7. **If changes exist**:
-   - Leave changes as uncommitted modifications on `main`.
+1. **Read context** — CLAUDE.md, rules/*.md, skills/*/SKILL.md, commands/*.md, REFLECTIONS.md.
+2. **Read transcript** from `transcript_path` (JSONL).
+3. **Filter candidates** — extract candidates using criteria above; drop any that fail Include or match Exclude; drop duplicates of existing context.
+4. **If no learnings**: stop.
+5. **Append to REFLECTIONS.md** — each learning as `- learning`, one per line, append-only. Create file if it does not exist.
 
 ## Output
 
-- End with a short plaintext summary of additions made (or "No changes").
+- End with a short plaintext summary of how many learnings were appended (or "No learnings extracted").

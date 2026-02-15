@@ -7,10 +7,12 @@
     "pr": ""
   },
   "permissions": {
-    "defaultMode": "dontAsk",
-    "deny": ["Task(Explore)"]
+    "deny": [
+      "Task(Explore)"
+    ],
+    "defaultMode": "dontAsk"
   },
-  "model": "claude-opus-4-6",
+  "model": "claude-opus-4-6[1m]",
   "hooks": {
     "SessionStart": [
       {
@@ -43,5 +45,7 @@
     "typescript-lsp@claude-plugins-official": true,
     "figma@claude-plugins-official": true,
     "playwright@claude-plugins-official": true
-  }
+  },
+  "effortLevel": "max",
+  "skipDangerousModePermissionPrompt": true
 }

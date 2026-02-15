@@ -54,7 +54,7 @@ When launching any built-in Claude Code subagent via the Task tool, prepend: "Re
 </subagents>
 
 <explore-agent>
-The built-in Explore subagent is disabled. Always use the custom `explore` agent defined in `~/.claude/agents/explore.md`.
-This agent inherits the main model (not Haiku), enforces the tooling hierarchy (GrepAI -> LSP -> Grep -> Glob -> Read -> Bash), and runs in read-only mode.
-The main thread MUST delegate all codebase search, analysis, and understanding tasks to `explore` — it must never perform these tasks directly.
+The built-in Explore subagent is disabled. Canonical exploration behavior is defined in `~/.claude/skills/explore/SKILL.md` (invoke via skill, not a custom agent command).
+The explore skill enforces the tooling hierarchy (GrepAI -> LSP -> Grep -> Glob -> Read -> Bash) and runs in read-only mode.
+The main thread MUST delegate all codebase search, analysis, and understanding tasks to the explore skill — it must never perform these tasks directly.
 </explore-agent>

@@ -11,25 +11,14 @@ if [[ -z "$home_dir" ]]; then
 fi
 
 claude_dir="$home_dir/.claude"
-kb_repo="$home_dir/.claude-kb"
 
 messages=()
 
-if [[ -d "$claude_dir/.git" ]]; then
-  claude_status="$(git -C "$claude_dir" status --porcelain)"
-  if [[ -z "$claude_status" ]]; then
-    git -C "$claude_dir" pull --ff-only --quiet || true
-    claude_status="$(git -C "$claude_dir" status --porcelain)"
-  fi
-
-  if [[ -n "$claude_status" ]]; then
-    messages+=("~/.claude has pending changes.")
-  fi
-fi
-
-if [[ -d "$kb_repo/.git" ]]; then
-  if [[ -n "$(git -C "$kb_repo" status --porcelain)" ]]; then
-    messages+=("~/.claude-kb has pending changes.")
+refl="$claude_dir/REFLECTIONS.md"
+if [[ -f "$refl" ]]; then
+  n="$(grep -c '^- ' "$refl" 2>/dev/null || echo 0)"
+  if [[ -n "$n" ]] && [[ "$n" -gt 0 ]] 2>/dev/null; then
+    messages+=("REFLECTIONS.md has $n pending learning(s).")
   fi
 fi
 
