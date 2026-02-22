@@ -24,10 +24,10 @@
     "playwright@claude-plugins-official": [
       {
         "scope": "user",
-        "installPath": "/Users/michaelsi/.claude/plugins/cache/claude-plugins-official/playwright/2cd88e7947b7",
-        "version": "2cd88e7947b7",
+        "installPath": "/Users/michaelsi/.claude/plugins/cache/claude-plugins-official/playwright/aa296ec81e8c",
+        "version": "aa296ec81e8c",
         "installedAt": "2026-02-05T08:43:09.891Z",
-        "lastUpdated": "2026-02-07T19:07:47.969Z",
+        "lastUpdated": "2026-02-21T14:31:51.481Z",
         "gitCommitSha": "27d2b86d72da27c64585150857cee8472ad47abb"
       }
     ]

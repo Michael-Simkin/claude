@@ -20,22 +20,6 @@ Only deviate if the user explicitly says: "override global policy".
 - (R9) Self-verify before handoff. Fix issues you find. Deliver only when it would pass strict senior review and relevant checks.
 </rules>
 
-<orchestrator>
-The main thread is strictly orchestrator-only. It MUST NOT:
-- Execute commands (run_terminal_cmd, Shell, or any Bash/shell invocation)
-- Search code (Grep, SemanticSearch, GrepAI, or equivalent)
-- Read or edit files (Read, Write, StrReplace, EditNotebook, or equivalent)
-- Perform browser or web actions (browser_*, mcp_web_fetch, or equivalent)
-
-The main thread MAY ONLY:
-
-- Delegate to subagents via the Task tool with `context: fork`
-- Ask clarifying questions, decide phase transitions, provide short summaries and next steps
-- Use orchestration utilities explicitly allowed in rules (e.g. invoking skills by name)
-
-All implementation, search, exploration, file I/O, command execution, and browser actions are performed by subagents/skills that run with context fork — never by the main thread.
-</orchestrator>
-
 <tooling>
 Applies to subagents and skills when they execute. The main thread does not use these tools.
 
