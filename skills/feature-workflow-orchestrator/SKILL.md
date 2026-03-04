@@ -1,16 +1,48 @@
 ---
 name: feature-workflow-orchestrator
-description: Orchestrates the planning and implementation of new non-trivial features. Use when the user asks to plan, build, or implement a new non-trivial feature.
+description: Gateway orchestrator for repository changes. Use whenever the user asks to implement, fix, refactor, edit, or otherwise change code/config/docs. Always ask first whether to use this workflow.
 argument-hint: "<feature brief>"
 ---
 
 # Feature Workflow Orchestrator
 
-This skill acts as the macro-level orchestrator for planning and implementing new non-trivial features.
+This skill acts as the macro-level orchestrator and gateway for repository changes.
+
+## Mandatory Invocation Scope
+
+Use this skill as the first step for any request that can modify repository state, including:
+
+- new feature implementation
+- bug fixes
+- refactors
+- code edits
+- config changes
+- docs changes
+
+## Mandatory Entry Gate (Always Ask First)
+
+Before doing planning or implementation, ask the user whether they want to use this orchestrated workflow for the current request.
+
+Use `AskQuestion` with explicit options:
+
+- `use_workflow`: Use the orchestrated workflow for this request
+- `skip_workflow`: Skip this workflow for this request
+
+Behavior:
+
+- If `skip_workflow`, stop this skill and hand off to the normal direct implementation path.
+- If `use_workflow`, continue with this skill.
+
+## Trivial vs Non-Trivial Routing
+
+After the user chooses `use_workflow`, classify scope:
+
+- **Non-trivial change** (multi-file, cross-module, API/data model changes, infra or deployment impact): use the full phase flow.
+- **Trivial/localized change** (small local fix or edit): run a lightweight workflow (focused plan, implementation, review, and final validation), but still ask clarifying questions for any non-trivial decision.
 
 ## Prerequisites
 
-1. **Confirmation**: Before beginning, FIRST confirm with the user that they want to start the feature implementation workflow.
+1. **Confirmation**: Before beginning, FIRST confirm with the user that they want to start the workflow for this request.
 2. **No Assumptions**: NEVER assume anything that is not trivial. Always ask questions and iterate on the plan over anything that is not a trivial decision.
 3. **Use the AskQuestion Tool**: Provide options supported by the existing code, design, state, and infrastructure.
 

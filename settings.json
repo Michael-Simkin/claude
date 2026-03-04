@@ -43,9 +43,10 @@
   },
   "enabledPlugins": {
     "typescript-lsp@claude-plugins-official": true,
+    "playwright@claude-plugins-official": true,
     "figma@claude-plugins-official": true,
-    "playwright@claude-plugins-official": true
+    "memories@memories": true
   },
-  "effortLevel": "max",
-  "skipDangerousModePermissionPrompt": true
+  "skipDangerousModePermissionPrompt": true,
+  "effortLevel": "max"
 }

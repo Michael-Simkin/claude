@@ -11,24 +11,34 @@
         "gitCommitSha": "e30768372b4150ca1bc0839d93283e8edc30d60d"
       }
     ],
-    "figma@claude-plugins-official": [
-      {
-        "scope": "user",
-        "installPath": "/Users/michaelsi/.claude/plugins/cache/claude-plugins-official/figma/1.1.0",
-        "version": "1.1.0",
-        "installedAt": "2026-01-28T12:50:15.897Z",
-        "lastUpdated": "2026-02-12T05:40:06.020Z",
-        "gitCommitSha": "20aca44ee6ba6092037e943c151c067896828360"
-      }
-    ],
     "playwright@claude-plugins-official": [
       {
         "scope": "user",
-        "installPath": "/Users/michaelsi/.claude/plugins/cache/claude-plugins-official/playwright/aa296ec81e8c",
-        "version": "aa296ec81e8c",
+        "installPath": "/Users/michaelsi/.claude/plugins/cache/claude-plugins-official/playwright/205b6e0b3036",
+        "version": "205b6e0b3036",
         "installedAt": "2026-02-05T08:43:09.891Z",
-        "lastUpdated": "2026-02-21T14:31:51.481Z",
+        "lastUpdated": "2026-03-04T07:32:46.752Z",
         "gitCommitSha": "27d2b86d72da27c64585150857cee8472ad47abb"
+      }
+    ],
+    "figma@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/michaelsi/.claude/plugins/cache/claude-plugins-official/figma/1.2.0",
+        "version": "1.2.0",
+        "installedAt": "2026-03-01T09:56:59.222Z",
+        "lastUpdated": "2026-03-01T09:56:59.222Z",
+        "gitCommitSha": "46a7d1bec64e0fd016eea6a66eda8ac34b44c491"
+      }
+    ],
+    "memories@memories": [
+      {
+        "scope": "user",
+        "installPath": "/Users/michaelsi/.claude/plugins/cache/memories/memories/0.2.11",
+        "version": "0.2.11",
+        "installedAt": "2026-03-02T09:09:20.823Z",
+        "lastUpdated": "2026-03-03T13:30:28.286Z",
+        "gitCommitSha": "407f71159e7ab714c8386a70655604762c170b45"
       }
     ]
   }
