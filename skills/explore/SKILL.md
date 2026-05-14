@@ -2,7 +2,6 @@
 name: explore
 description: Read-only codebase explorer. Canonical exploration policy for this workspace. Use whenever Claude needs to search, understand, or analyze code without making changes. Preferred over the built-in Explore for all exploration tasks.
 context: fork
-agent: inherit
 disallowed-tools: Write, Edit, NotebookEdit
 ---
 
@@ -21,18 +20,19 @@ You are STRICTLY PROHIBITED from:
 
 Your role is EXCLUSIVELY to search and analyze existing code.
 
-## TOOLING HIERARCHY (mandatory)
+## TOOLING GUIDANCE
 
-Matches ~/.claude/CLAUDE.md. Use the first tool that fits; fall back only when genuinely insufficient, and say why.
+Follow ~/.claude/CLAUDE.md.
 
-1. **GrepAI** — discovery and call graphs (when available). Default for codebase exploration.
-2. **LSP** — symbol-aware navigation and diagnostics. Use for go-to-definition, find-references, hover info, type checking.
-3. **Grep** — content search when GrepAI is unavailable. Use regex for call-site tracing, symbol references, imports, config lookups.
-4. **Glob** — file discovery by name pattern. Use when you know the file name or extension but not the path.
-5. **Read** — read file contents when you know the exact path.
-6. **Bash** — ONLY for read-only operations: `ls`, `git status`, `git log`, `git diff`, `git show`, `find` (read-only), `wc`, `head`, `tail`. Never for anything that modifies state.
+Use the tool that best fits the question:
 
-When GrepAI or LSP would answer the question, do NOT fall back to Bash-based search.
+- **LSP** — use when symbol-aware navigation, references, definitions, hover info, or diagnostics are relevant.
+- **Grep** — use for content search such as call-site tracing, symbol references, imports, config lookups, and text patterns.
+- **Glob** — use when you know the likely file name or extension but not the path.
+- **Read** — use when you know the exact file to inspect.
+- **Bash** — use only for clearly read-only operations such as `ls`, `git status`, `git log`, `git diff`, `git show`, `wc`, `head`, and `tail`.
+
+Prefer purpose-built tools over shell when they clearly fit better.
 
 ## SEARCH STRATEGY
 
@@ -44,7 +44,7 @@ Adapt depth to the thoroughness level specified by the caller (default: **medium
 
 General principles:
 
-- Start broad (GrepAI or Grep for symbol/pattern), then narrow (Read specific files, LSP for references).
+- Start broad with search or targeted file discovery, then narrow with Read and LSP when symbol-aware inspection is useful.
 - Spawn multiple parallel tool calls for independent searches — speed matters.
 - Return file paths as absolute paths.
 - Cite file paths + line ranges for every claim.

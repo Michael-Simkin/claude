@@ -1,6 +1,7 @@
 {
   "env": {
-    "EDITOR": "cursor --wait"
+    "EDITOR": "cursor --wait",
+    "ENABLE_TOOL_SEARCH": "true"
   },
   "attribution": {
     "commit": "",
@@ -12,41 +13,48 @@
     ],
     "defaultMode": "dontAsk"
   },
-  "model": "claude-opus-4-6[1m]",
-  "hooks": {
-    "SessionStart": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "bash \"$HOME/.claude/hooks/session-start.sh\""
-          }
-        ]
-      }
-    ],
-    "SessionEnd": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "bash \"$HOME/.claude/hooks/session-end.sh\"",
-            "timeout": 3600,
-            "async": true
-          }
-        ]
-      }
-    ]
-  },
+  "model": "opus[1m]",
+  "hooks": {},
   "statusLine": {
     "type": "command",
     "command": "bash \"$HOME/.claude/scripts/statusline.sh\""
   },
   "enabledPlugins": {
-    "typescript-lsp@claude-plugins-official": true,
+    "axcli@agentic-builders-hub": false,
+    "impeccable@impeccable": false,
     "playwright@claude-plugins-official": true,
-    "figma@claude-plugins-official": true,
-    "memories@memories": true
+    "slack@claude-plugins-official": true,
+    "transcripts@memories": true,
+    "typescript-lsp@claude-plugins-official": true,
+    "superpowers@claude-plugins-official": true
   },
-  "skipDangerousModePermissionPrompt": true,
-  "effortLevel": "max"
+  "extraKnownMarketplaces": {
+    "agentic-builders-hub": {
+      "source": {
+        "source": "github",
+        "repo": "dapulse/agentic-builders-hub"
+      }
+    },
+    "gsap-skills": {
+      "source": {
+        "source": "github",
+        "repo": "greensock/gsap-skills"
+      }
+    },
+    "impeccable": {
+      "source": {
+        "source": "github",
+        "repo": "pbakaus/impeccable"
+      }
+    },
+    "memories": {
+      "source": {
+        "source": "github",
+        "repo": "Michael-Simkin/memories"
+      },
+      "autoUpdate": true
+    }
+  },
+  "effortLevel": "xhigh",
+  "skipDangerousModePermissionPrompt": true
 }

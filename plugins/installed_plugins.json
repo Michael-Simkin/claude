@@ -14,31 +14,61 @@
     "playwright@claude-plugins-official": [
       {
         "scope": "user",
-        "installPath": "/Users/michaelsi/.claude/plugins/cache/claude-plugins-official/playwright/205b6e0b3036",
-        "version": "205b6e0b3036",
+        "installPath": "/Users/michaelsi/.claude/plugins/cache/claude-plugins-official/playwright/2a5884ec816c",
+        "version": "2a5884ec816c",
         "installedAt": "2026-02-05T08:43:09.891Z",
-        "lastUpdated": "2026-03-04T07:32:46.752Z",
+        "lastUpdated": "2026-04-23T08:17:19.762Z",
         "gitCommitSha": "27d2b86d72da27c64585150857cee8472ad47abb"
       }
     ],
-    "figma@claude-plugins-official": [
+    "axcli@agentic-builders-hub": [
       {
         "scope": "user",
-        "installPath": "/Users/michaelsi/.claude/plugins/cache/claude-plugins-official/figma/1.2.0",
-        "version": "1.2.0",
-        "installedAt": "2026-03-01T09:56:59.222Z",
-        "lastUpdated": "2026-03-01T09:56:59.222Z",
-        "gitCommitSha": "46a7d1bec64e0fd016eea6a66eda8ac34b44c491"
+        "installPath": "/Users/michaelsi/.claude/plugins/cache/agentic-builders-hub/axcli/1.1.2",
+        "version": "1.1.2",
+        "installedAt": "2026-03-09T07:45:34.400Z",
+        "lastUpdated": "2026-04-30T13:18:40.112Z",
+        "gitCommitSha": "7c11b5074e12affad3cc8cca86b3981383a24d1c"
       }
     ],
-    "memories@memories": [
+    "slack@claude-plugins-official": [
       {
         "scope": "user",
-        "installPath": "/Users/michaelsi/.claude/plugins/cache/memories/memories/0.2.11",
-        "version": "0.2.11",
-        "installedAt": "2026-03-02T09:09:20.823Z",
-        "lastUpdated": "2026-03-03T13:30:28.286Z",
-        "gitCommitSha": "407f71159e7ab714c8386a70655604762c170b45"
+        "installPath": "/Users/michaelsi/.claude/plugins/cache/claude-plugins-official/slack/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2026-03-17T15:27:54.913Z",
+        "lastUpdated": "2026-03-23T10:53:44.422Z",
+        "gitCommitSha": "5a4ffe5ef353c1893eb0f1762a9071bebeeb7fde"
+      }
+    ],
+    "transcripts@memories": [
+      {
+        "scope": "user",
+        "installPath": "/Users/michaelsi/.claude/plugins/cache/memories/transcripts/0.1.8",
+        "version": "0.1.8",
+        "installedAt": "2026-04-15T09:22:06.308Z",
+        "lastUpdated": "2026-04-15T11:11:12.692Z",
+        "gitCommitSha": "94dff6f02cbdc729eb7a4f95c8ef72e3dd102955"
+      }
+    ],
+    "impeccable@impeccable": [
+      {
+        "scope": "user",
+        "installPath": "/Users/michaelsi/.claude/plugins/cache/impeccable/impeccable/3.1.0",
+        "version": "3.1.0",
+        "installedAt": "2026-04-23T17:28:11.475Z",
+        "lastUpdated": "2026-05-13T08:37:34.729Z",
+        "gitCommitSha": "00d485659af82982aef0328d0419c49a2716d123"
+      }
+    ],
+    "superpowers@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/michaelsi/.claude/plugins/cache/claude-plugins-official/superpowers/5.1.0",
+        "version": "5.1.0",
+        "installedAt": "2026-05-12T10:40:00.684Z",
+        "lastUpdated": "2026-05-12T10:40:00.684Z",
+        "gitCommitSha": "f2cbfbefebbfef77321e4c9abc9e949826bea9d7"
       }
     ]
   }
