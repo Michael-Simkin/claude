@@ -8,13 +8,22 @@
     "pr": ""
   },
   "permissions": {
-    "deny": [
-      "Task(Explore)"
-    ],
     "defaultMode": "dontAsk"
   },
   "model": "opus[1m]",
-  "hooks": {},
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "rtk hook claude"
+          }
+        ]
+      }
+    ]
+  },
   "statusLine": {
     "type": "command",
     "command": "bash \"$HOME/.claude/scripts/statusline.sh\""
@@ -26,7 +35,9 @@
     "slack@claude-plugins-official": true,
     "transcripts@memories": true,
     "typescript-lsp@claude-plugins-official": true,
-    "superpowers@claude-plugins-official": true
+    "superpowers@claude-plugins-official": true,
+    "mermaid-validator@memories": true,
+    "figma@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
     "agentic-builders-hub": {
@@ -56,5 +67,6 @@
     }
   },
   "effortLevel": "xhigh",
+  "tui": "fullscreen",
   "skipDangerousModePermissionPrompt": true
 }

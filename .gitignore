@@ -45,3 +45,6 @@
 !plugins/
 plugins/*
 !plugins/installed_plugins.json
+
+# RTK extension
+!RTK.md

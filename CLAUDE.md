@@ -63,6 +63,7 @@ Applies to subagents and skills when they execute. Main thread does not use thes
 </tooling>
 
 <delegation>
-- (D1) Built-in Explore subagent disabled. Codebase search/analysis/understanding → delegate to `~/.claude/skills/explore/SKILL.md`. Main thread never does these directly. Skill runs read-only.
-- (D2) Any built-in subagent launched via Task tool: prepend "Read and follow ~/.claude/CLAUDE.md, especially <tooling>, use LSP when applicable." Mandatory.
+- (D1) Any built-in subagent launched via Task tool: prepend "Read and follow ~/.claude/CLAUDE.md, especially <tooling>, use LSP when applicable." Mandatory.
 </delegation>
+
+@RTK.md

@@ -14,10 +14,10 @@
     "playwright@claude-plugins-official": [
       {
         "scope": "user",
-        "installPath": "/Users/michaelsi/.claude/plugins/cache/claude-plugins-official/playwright/2a5884ec816c",
-        "version": "2a5884ec816c",
+        "installPath": "/Users/michaelsi/.claude/plugins/cache/claude-plugins-official/playwright/882f3dcebc69",
+        "version": "882f3dcebc69",
         "installedAt": "2026-02-05T08:43:09.891Z",
-        "lastUpdated": "2026-04-23T08:17:19.762Z",
+        "lastUpdated": "2026-05-14T13:34:18.795Z",
         "gitCommitSha": "27d2b86d72da27c64585150857cee8472ad47abb"
       }
     ],
@@ -69,6 +69,26 @@
         "installedAt": "2026-05-12T10:40:00.684Z",
         "lastUpdated": "2026-05-12T10:40:00.684Z",
         "gitCommitSha": "f2cbfbefebbfef77321e4c9abc9e949826bea9d7"
+      }
+    ],
+    "mermaid-validator@memories": [
+      {
+        "scope": "user",
+        "installPath": "/Users/michaelsi/.claude/plugins/cache/memories/mermaid-validator/0.1.0",
+        "version": "0.1.0",
+        "installedAt": "2026-05-22T13:49:48.846Z",
+        "lastUpdated": "2026-05-22T13:49:48.846Z",
+        "gitCommitSha": "26a4a31fe8021229aa5585a7d8d6696bbd876683"
+      }
+    ],
+    "figma@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/michaelsi/.claude/plugins/cache/claude-plugins-official/figma/2.2.12",
+        "version": "2.2.12",
+        "installedAt": "2026-05-26T08:10:45.593Z",
+        "lastUpdated": "2026-05-26T08:10:45.593Z",
+        "gitCommitSha": "a742f0a700a7772ff5ed85f7c9fc1dad5afa9fcc"
       }
     ]
   }
