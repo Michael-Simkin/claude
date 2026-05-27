@@ -8,7 +8,13 @@
     "pr": ""
   },
   "permissions": {
-    "defaultMode": "dontAsk"
+    "defaultMode": "dontAsk",
+    "ask": [
+      "Bash(git commit:*)",
+      "Bash(git add:*)",
+      "Bash(git reset:*)",
+      "Bash(git restore --staged:*)"
+    ]
   },
   "model": "opus[1m]",
   "hooks": {
