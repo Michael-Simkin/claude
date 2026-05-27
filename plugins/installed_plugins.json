@@ -90,6 +90,16 @@
         "lastUpdated": "2026-05-26T08:10:45.593Z",
         "gitCommitSha": "a742f0a700a7772ff5ed85f7c9fc1dad5afa9fcc"
       }
+    ],
+    "keep-awake@memories": [
+      {
+        "scope": "user",
+        "installPath": "/Users/michaelsi/.claude/plugins/cache/memories/keep-awake/0.1.0",
+        "version": "0.1.0",
+        "installedAt": "2026-05-27T10:26:46.625Z",
+        "lastUpdated": "2026-05-27T10:26:46.625Z",
+        "gitCommitSha": "d84c45564d655adc402d43f6a9fcb4327e5cb68a"
+      }
     ]
   }
 }

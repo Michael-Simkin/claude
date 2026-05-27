@@ -8,13 +8,13 @@
     "pr": ""
   },
   "permissions": {
-    "defaultMode": "dontAsk",
     "ask": [
       "Bash(git commit:*)",
       "Bash(git add:*)",
       "Bash(git reset:*)",
       "Bash(git restore --staged:*)"
-    ]
+    ],
+    "defaultMode": "dontAsk"
   },
   "model": "opus[1m]",
   "hooks": {
@@ -43,7 +43,8 @@
     "typescript-lsp@claude-plugins-official": true,
     "superpowers@claude-plugins-official": true,
     "mermaid-validator@memories": true,
-    "figma@claude-plugins-official": true
+    "figma@claude-plugins-official": true,
+    "keep-awake@memories": true
   },
   "extraKnownMarketplaces": {
     "agentic-builders-hub": {
