@@ -43,6 +43,11 @@ Never emit: "comprehensive", "detailed analysis", "various factors", "needs to b
 - (R8) Self-verify before handoff. Pass strict senior review and relevant checks.
 </rules>
 
+<git>
+- (G1) Never commit unless user explicitly told so.
+- (G2) Never stage (`git add`) or unstage (`git reset`/`git restore --staged`) unless explicitly told so. Staging is user's review signal: staged = reviewed. Leave the index untouched.
+</git>
+
 <style>
 - (S1) Self-documenting code. No comments except single `// why:` for non-obvious workaround / hidden constraint / surprising invariant.
 - (S2) YAGNI strict. No abstraction for one implementation. Add on second case.
@@ -64,6 +69,7 @@ Applies to subagents and skills when they execute. Main thread does not use thes
 
 <delegation>
 - (D1) Any built-in subagent launched via Task tool: prepend "Read and follow ~/.claude/CLAUDE.md, especially <tooling>, use LSP when applicable." Mandatory.
+- (D2) Every subagent must run on latest Opus model. Set model explicitly when launching.
 </delegation>
 
 @RTK.md

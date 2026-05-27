@@ -14,11 +14,11 @@
     "playwright@claude-plugins-official": [
       {
         "scope": "user",
-        "installPath": "/Users/michaelsi/.claude/plugins/cache/claude-plugins-official/playwright/882f3dcebc69",
-        "version": "882f3dcebc69",
+        "installPath": "/Users/michaelsi/.claude/plugins/cache/claude-plugins-official/playwright/2d1ec1796f92",
+        "version": "2d1ec1796f92",
         "installedAt": "2026-02-05T08:43:09.891Z",
-        "lastUpdated": "2026-05-14T13:34:18.795Z",
-        "gitCommitSha": "27d2b86d72da27c64585150857cee8472ad47abb"
+        "lastUpdated": "2026-05-26T11:47:03.756Z",
+        "gitCommitSha": "2d1ec1796f92d592100d6f06f7b00d725b9c6e4d"
       }
     ],
     "axcli@agentic-builders-hub": [
