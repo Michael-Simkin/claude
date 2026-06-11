@@ -16,7 +16,7 @@
     ],
     "defaultMode": "dontAsk"
   },
-  "model": "opus[1m]",
+  "model": "claude-fable-5[1m]",
   "hooks": {
     "PreToolUse": [
       {
@@ -35,16 +35,11 @@
     "command": "bash \"$HOME/.claude/scripts/statusline.sh\""
   },
   "enabledPlugins": {
-    "axcli@agentic-builders-hub": false,
     "impeccable@impeccable": false,
-    "playwright@claude-plugins-official": true,
     "slack@claude-plugins-official": true,
-    "transcripts@memories": true,
-    "typescript-lsp@claude-plugins-official": true,
-    "superpowers@claude-plugins-official": true,
     "mermaid-validator@memories": true,
     "figma@claude-plugins-official": true,
-    "keep-awake@memories": true
+    "chrome-devtools-mcp@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
     "agentic-builders-hub": {
@@ -73,7 +68,8 @@
       "autoUpdate": true
     }
   },
-  "effortLevel": "xhigh",
+  "effortLevel": "high",
   "tui": "fullscreen",
-  "skipDangerousModePermissionPrompt": true
+  "skipDangerousModePermissionPrompt": true,
+  "agentPushNotifEnabled": true
 }

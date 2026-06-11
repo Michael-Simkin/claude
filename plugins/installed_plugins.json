@@ -1,36 +1,6 @@
 {
   "version": 2,
   "plugins": {
-    "typescript-lsp@claude-plugins-official": [
-      {
-        "scope": "user",
-        "installPath": "/Users/michaelsi/.claude/plugins/cache/claude-plugins-official/typescript-lsp/1.0.0",
-        "version": "1.0.0",
-        "installedAt": "2026-01-28T09:22:18.590Z",
-        "lastUpdated": "2026-01-28T09:22:18.590Z",
-        "gitCommitSha": "e30768372b4150ca1bc0839d93283e8edc30d60d"
-      }
-    ],
-    "playwright@claude-plugins-official": [
-      {
-        "scope": "user",
-        "installPath": "/Users/michaelsi/.claude/plugins/cache/claude-plugins-official/playwright/2d1ec1796f92",
-        "version": "2d1ec1796f92",
-        "installedAt": "2026-02-05T08:43:09.891Z",
-        "lastUpdated": "2026-05-26T11:47:03.756Z",
-        "gitCommitSha": "2d1ec1796f92d592100d6f06f7b00d725b9c6e4d"
-      }
-    ],
-    "axcli@agentic-builders-hub": [
-      {
-        "scope": "user",
-        "installPath": "/Users/michaelsi/.claude/plugins/cache/agentic-builders-hub/axcli/1.1.2",
-        "version": "1.1.2",
-        "installedAt": "2026-03-09T07:45:34.400Z",
-        "lastUpdated": "2026-04-30T13:18:40.112Z",
-        "gitCommitSha": "7c11b5074e12affad3cc8cca86b3981383a24d1c"
-      }
-    ],
     "slack@claude-plugins-official": [
       {
         "scope": "user",
@@ -41,34 +11,14 @@
         "gitCommitSha": "5a4ffe5ef353c1893eb0f1762a9071bebeeb7fde"
       }
     ],
-    "transcripts@memories": [
-      {
-        "scope": "user",
-        "installPath": "/Users/michaelsi/.claude/plugins/cache/memories/transcripts/0.1.8",
-        "version": "0.1.8",
-        "installedAt": "2026-04-15T09:22:06.308Z",
-        "lastUpdated": "2026-04-15T11:11:12.692Z",
-        "gitCommitSha": "94dff6f02cbdc729eb7a4f95c8ef72e3dd102955"
-      }
-    ],
     "impeccable@impeccable": [
       {
         "scope": "user",
-        "installPath": "/Users/michaelsi/.claude/plugins/cache/impeccable/impeccable/3.1.0",
-        "version": "3.1.0",
+        "installPath": "/Users/michaelsi/.claude/plugins/cache/impeccable/impeccable/3.1.1",
+        "version": "3.1.1",
         "installedAt": "2026-04-23T17:28:11.475Z",
-        "lastUpdated": "2026-05-13T08:37:34.729Z",
-        "gitCommitSha": "00d485659af82982aef0328d0419c49a2716d123"
-      }
-    ],
-    "superpowers@claude-plugins-official": [
-      {
-        "scope": "user",
-        "installPath": "/Users/michaelsi/.claude/plugins/cache/claude-plugins-official/superpowers/5.1.0",
-        "version": "5.1.0",
-        "installedAt": "2026-05-12T10:40:00.684Z",
-        "lastUpdated": "2026-05-12T10:40:00.684Z",
-        "gitCommitSha": "f2cbfbefebbfef77321e4c9abc9e949826bea9d7"
+        "lastUpdated": "2026-05-28T09:55:21.302Z",
+        "gitCommitSha": "84135db0e6bdd58d22828f7bc8331cae7bde3e7f"
       }
     ],
     "mermaid-validator@memories": [
@@ -84,21 +34,21 @@
     "figma@claude-plugins-official": [
       {
         "scope": "user",
-        "installPath": "/Users/michaelsi/.claude/plugins/cache/claude-plugins-official/figma/2.2.12",
-        "version": "2.2.12",
+        "installPath": "/Users/michaelsi/.claude/plugins/cache/claude-plugins-official/figma/2.2.50",
+        "version": "2.2.50",
         "installedAt": "2026-05-26T08:10:45.593Z",
-        "lastUpdated": "2026-05-26T08:10:45.593Z",
+        "lastUpdated": "2026-06-10T19:49:12.304Z",
         "gitCommitSha": "a742f0a700a7772ff5ed85f7c9fc1dad5afa9fcc"
       }
     ],
-    "keep-awake@memories": [
+    "chrome-devtools-mcp@claude-plugins-official": [
       {
         "scope": "user",
-        "installPath": "/Users/michaelsi/.claude/plugins/cache/memories/keep-awake/0.1.0",
-        "version": "0.1.0",
-        "installedAt": "2026-05-27T10:26:46.625Z",
-        "lastUpdated": "2026-05-27T10:26:46.625Z",
-        "gitCommitSha": "d84c45564d655adc402d43f6a9fcb4327e5cb68a"
+        "installPath": "/Users/michaelsi/.claude/plugins/cache/claude-plugins-official/chrome-devtools-mcp/1.2.0",
+        "version": "1.2.0",
+        "installedAt": "2026-05-28T14:30:31.723Z",
+        "lastUpdated": "2026-06-09T06:37:36.269Z",
+        "gitCommitSha": "60be3e6bc157bd1121ea1d4b6ad59e37a73cac3e"
       }
     ]
   }
